@@ -63,7 +63,7 @@ $(DRVGEN_FILE_LIST): $(DRVGEN_TOOL) $(DWS_FILE) $(DRVGEN_FIG) $(DTS_FILES)
 		dws_path=$(srctree)/$(DRVGEN_PATH)/$$base_prj.dws ;\
 		if [ -f $$dws_path ] ; then \
 			mkdir -p $$prj_path ;\
-			$(python) $(DRVGEN_TOOL) $$dws_path $$prj_path $$prj_path cust_dtsi;\
+			$(python3) $(DRVGEN_TOOL) $$dws_path $$prj_path $$prj_path cust_dtsi;\
 		fi \
 	done
 

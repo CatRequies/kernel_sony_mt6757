@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2016 MediaTek Inc.
@@ -14,13 +14,14 @@
 
 import sys, os
 import re
-import ConfigParser
+import configparser
 import xml.dom.minidom
 
-from ModuleObj import ModuleObj
+from .ModuleObj import ModuleObj
 from data.PmicData import PmicData
 
 from utility.util import log
+from utility.util import cmp
 from utility.util import LogLevel
 from utility.util import compare
 from utility.util import sorted_key
@@ -39,7 +40,7 @@ class PmicObj(ModuleObj):
 
 
     def get_cfgInfo(self):
-        cp = ConfigParser.ConfigParser(allow_no_value=True)
+        cp = configparser.ConfigParser(allow_no_value=True, strict=False)
         cp.read(ModuleObj.get_cmpPath())
 
         PmicData._var_list = cp.options('APPLICATION')
